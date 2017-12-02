@@ -1,16 +1,22 @@
 <h1>Welcome to the RoboStore </h1>
 <p>For everything robot </p>
 <div class="ui grid">
-  <div class="sixteen wide mobile eight wide tablet four wide computer column">
     <% @items.each do |item| %>
-      <li><%= link_to item.name, item_path(item) %> $<%= item.price %> </li>
+      <div class="sixteen wide mobile eight wide tablet four wide computer column">
        <div class="ui card">
         <div class="image">
-          <img src="https://robohash.org/<%= item.photo %>?set=4" />
-        </div>
+            <img src="https://robohash.org/<%= item.photo %>?set=4" />
+          </div>
+          <div class='content'>
+            <%= link_to item.name, item_path(item) %> $<%= item.price %> 
+          </div>
+          <div class='ui bottom attached button'>
+             <i class="add icon"></i>
+            <%= link_to 'Add to cart', item_path(item) %>
+          </div>
+         </div>
       </div>
     <% end %>
 </div>
 
 
-     

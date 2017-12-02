@@ -9,14 +9,29 @@
   </head>
 
   <body>
-  <nav>
-  <% if user_signed_in? %>
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete%>
-    <%else %>
-    <%= link_to 'Login', new_user_session_path%>
-    <% end%>
-  </nav>
-
+  <div class='ui container'>
+      <nav class="ui secondary  menu">
+        <%= link_to 'Home', items_path, class: 'active item'%>
+        <%= link_to 'View Cart', user_registration_path, class:'item'%>
+        <%= link_to 'View Account', user_registration_path, class: 'item' %>
+        <div class='right menu'>
+         <div class="item">
+          <div class="ui icon input">
+            <input type="text" placeholder="Search...">
+            <i class="search link icon"></i>
+          </div>
+       </div>
+        <% if user_signed_in? %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ui item'%> 
+        <%else %>
+        <%= link_to 'Login', new_user_session_path, class: 'ui item'%>
+        <% end%>
+        </div>
+      </nav>
+      <div>
     <%= yield %>
+    </div>
   </body>
 </html>
+
+
