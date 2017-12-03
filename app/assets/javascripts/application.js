@@ -14,3 +14,7 @@
 //= require turbolinks
 //= require semantic-ui
 //= require_tree .
+
+$("#openmodal").click(function () {
+  $('.ui.modal').modal('show');
+});

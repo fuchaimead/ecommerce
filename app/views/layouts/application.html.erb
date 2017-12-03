@@ -9,11 +9,12 @@
   </head>
 
   <body>
+  <!--<br />
   <div class='ui container'>
       <nav class="ui secondary  menu">
         <%= link_to 'Home', items_path, class: 'active item'%>
        
-         <%= link_to 'View Cart', carts_path, class:'item'%>
+        <%= link_to 'View Cart', carts_path, class:'item'%>
         <%= link_to 'View Account', user_path(current_user), class: 'item' %>
         <div class='right menu'>
          <div class="item">
@@ -28,11 +29,50 @@
         <%= link_to 'Login', new_user_session_path, class: 'ui item'%>
         <% end%>
         </div>
-      </nav>
-      <div>
+      </div>
+      <% if !user_signed_in? %>
+      <%=link_to semantic_icon('sign in')+'Log in', new_user_session_path, class: 'ui primary blue button' %>
+      <%=link_to semantic_icon('add user')+'Sign up', new_user_registration_path, class: 'ui basic blue button' %>
+      <%else%>
+      <%=link_to semantic_icon('sign out')+'Log out', destroy_user_session_path, class: 'ui basic secondary button', method: :delete %> 
+      <%end%>
+      </div>
+    </nav>
+    <div class="ui horizontal divider"></div>-->
+
+    <div class="ui top menu">
+      <%= link_to "Home", root_path, class: "active blue item" %>
+      <%= link_to 'View Cart', user_registration_path, class:'item'%>
+      <%= link_to 'View Account', user_registration_path, class: 'item' %>
+      <div class="right menu">
+        <% unless user_signed_in?  %>
+        <%= link_to new_user_registration_path, class: "item" do%>
+          <i class="signup icon"></i> Sign Up
+        <% end %>
+        <%= link_to new_user_session_path, class: "item" do %>
+          <i class="sign in icon"></i> Login
+        <% end %>
+        <% else %>
+        <%= link_to edit_user_registration_path, class: "item" do %>
+          <i class="settings icon"></i> Settings
+        <% end %>
+
+        <%= link_to destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"}, class: "item" do %>
+          <i class="sign out icon"></i> Logout
+        <% end %>
+
+        <% end %>
+      </div>
+    </div>
+
+    <div>
     <%= yield %>
     </div>
   </body>
 </html>
 
+
+
+
+        
 
