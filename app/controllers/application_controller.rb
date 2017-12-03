@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def current_order
-    if !session[:user_id].nil?
-      Cart.find(session[:user_id])
+    if !session[:cart_id].nil?
+      Cart.find(session[:cart_id])
     else
       Cart.new
     end
