@@ -1,0 +1,12 @@
+<h1>Your Account Information!</h1>
+<hr />
+
+
+    <p>First name: <%= @user.first_name %></p>
+    <p>Last name: <%= @user.last_name %></p>
+    <p>Email Address: <%= @user.email %></p>
+    <p>Member since: <%= @user.created_at %></p>
+
+
+<%= link_to 'Home', items_path %>
+<%= link_to 'Edit Account', edit_user_registration_path %>

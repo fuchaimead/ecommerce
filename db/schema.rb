@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20171203080213) do
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
     t.string "photo"
     t.boolean "in_cart", default: false
   end
