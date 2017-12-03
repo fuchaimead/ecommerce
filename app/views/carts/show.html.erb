@@ -1,9 +1,7 @@
 <h1>Shopping Cart</h1>
 <h2> </h2>
 
-<% if @item.in_cart == true %>
-<%= @item.photo %>
-<% end %>
+ <%= render "shopping" %>
 
   <%= link_to 'add more items', items_path, class: 'ui button' %>
   <%= link_to 'remove items', item_path, method: :delete, class: 'ui button'%>

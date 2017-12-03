@@ -1,4 +1,3 @@
-require 'items_controller'
 class CartsController < ApplicationController
 
   def index
@@ -6,7 +5,7 @@ class CartsController < ApplicationController
   end
 
   def show
-    @cart = current_user.cart
+    @order_items = current_order.order_items
   end
 
   def edit
