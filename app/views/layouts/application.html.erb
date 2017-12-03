@@ -12,7 +12,7 @@
   <div class='ui container'>
       <nav class="ui secondary  menu">
         <%= link_to 'Home', items_path, class: 'active item'%>
-        <%= link_to 'View Cart', user_registration_path, class:'item'%>
+        <%= link_to 'View Cart', cart_path(current_user), class:'item'%>
         <%= link_to 'View Account', user_registration_path, class: 'item' %>
         <div class='right menu'>
          <div class="item">
