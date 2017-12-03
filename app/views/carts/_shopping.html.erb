@@ -1,7 +1,6 @@
 <% if @order_items.size == 0 %>
   <p> There are no items in your shopping cart. Please add items to your cart.
    <%= link_to 'Shop', items_path, class: 'ui button' %> </p>
-
   <% else %>
     <% @order_item.each do |order_item|%>
     <%=  order_item.item %>

@@ -1,8 +1,9 @@
-</div>
+<p id="notice" class=<% notice ? 'success' : '' %>><%= notice %></p>
+
 <h1><%= @item.name %></h1>
 $<%= @item.price %>
 <br />
 <%= @item.photo %>
 <%= link_to 'back', items_path, class:'ui button' %>
-<%= link_to 'add to cart', in_cart_path, method: :put, class: 'ui button'%>
+<%= link_to 'add to cart', order_items_path, method: :post, class: 'ui button'%>
 
