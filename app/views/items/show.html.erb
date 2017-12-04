@@ -1,6 +1,9 @@
-<!-- would like to center the text in the row  -->
-<div class="row" style="background-color: lightblue;color: black;">
-   <div class="column"><h1>You are viewing <%= @item.name %></h1></div>
+<div class="ui row" style="background-color: lightgrey;color: black;">
+   <div class="column">
+    <div class="ui header center aligned aligned">
+      <h1 class="centered">You are viewing... <%= @item.name %></h1>
+      </div>
+   </div>
 </div>
 <div class="ui divider"></div>
 <div class="ui centered grid">
@@ -32,3 +35,13 @@
         </div>
     </div>
 </div>
+
+<div class="ui divider"></div>
+<div class="ui equal width center aligned padded grid">
+  <div class="row">
+    <div class="blue column"> </div>
+    <div class="blue column"> </div>
+  </div>
+<br />
+</div>
+<div class="ui divider"></div>

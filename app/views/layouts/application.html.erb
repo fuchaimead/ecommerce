@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ecommerce</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Ecommerce</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
   <body>
   <!--<br />
@@ -68,7 +68,12 @@
     <div>
     <%= yield %>
     </div>
-  </body>
+  </div>
+  
+  <div class='ui container'>
+  <%= yield %>
+  </div>
+</body>
 </html>
 
 
