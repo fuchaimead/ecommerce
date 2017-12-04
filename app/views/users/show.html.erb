@@ -1,12 +1,27 @@
 <h1>Your Account Information!</h1>
 <hr />
 
+</br>
 
-    <p>First name: <%= @user.first_name %></p>
-    <p>Last name: <%= @user.last_name %></p>
-    <p>Email Address: <%= @user.email %></p>
-    <p>Member since: <%= @user.created_at %></p>
+<table class="ui very basic table">
+  <thead>
+    <tr>
+      <th><font size="4">First Name</th>
+      <th><font size="4">Last Name</th>
+      <th><font size="4">Email Address</th>
+      <th><font size="4">Member since:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><font size="3"><%= @user.first_name %></td>
+      <td><font size="3"><%= @user.last_name %></td>
+      <td><font size="3"><%= @user.email %></td>
+      <td><font size="3"><%= @user.created_at %></td>
+    </tr>
+</table>
 
+</br>
 
-<%= link_to 'Home', items_path %>
-<%= link_to 'Edit Account', edit_user_registration_path %>
+<%= link_to 'Home', items_path, class: 'ui button' %>
+<%= link_to 'Edit Account', edit_user_registration_path, class: 'ui button' %>
