@@ -12,8 +12,8 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require semantic-ui
 //= require_tree .
+//= require semantic-ui
 
 $("#openmodal").click(function () {
   $('.ui.modal').modal('show');

@@ -1,16 +1,23 @@
-<h2>Forgot your password?</h2>
+<div class="ui relaxed equal width grid">
+  <div class="ui row">
+    <div class="ui four wide column"></div>
+    <div class="ui eight wide column segment">
+      <h2 class="ui center aligned dividing header">Forgot your password </h2>
+      
+      <div class="ui form <%= "error" if resource.errors.any? %>">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email, placeholder: 'Email address', autofocus: true %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+        <div class="actions">
+          <%= f.submit "Send me reset password instructions", class: "ui submit button primary " %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+       

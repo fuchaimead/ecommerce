@@ -1,11 +1,23 @@
-<% if @order_items.size == 0 %>
-  <p> There are no items in your shopping cart. Please add items to your cart.
+<% if current_user.cart.items.any?  %>
+  <% current_user.cart.items.each do |item|%>
+  <div class="sixteen wide mobile eight wide tablet four wide computer column">
+    <div class='ui cards'>
+      <div class= 'card'>
+        <div class="image">
+          <img src="https://robohash.org/<%= item.photo %>?set=4" />
+        </div>
+        <div class='content'>
+        <%= item.name %>
+        </div>
+  <%= link_to 'add more items', items_path, class: 'ui button' %>
+  <%= link_to 'remove item', item_path, method: :delete, class: 'ui button'%>
+      </div>
+    </div>
+    </div>
+  <% end %>
   <% else %>
-    <% @order_item.each do |order_item|%>
-    <%=  order_item.item %>
+    <p> There are no items in your shopping cart. Please add items to your cart. </p>
   <% end %>
-  <% end %>
-
 
 
 

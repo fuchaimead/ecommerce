@@ -9,71 +9,37 @@
 </head>
 
   <body>
-  <!--<br />
-  <div class='ui container'>
-      <nav class="ui secondary  menu">
-        <%= link_to 'Home', items_path, class: 'active item'%>
-       
-        <%= link_to 'View Cart', carts_path, class:'item'%>
-        <%= link_to 'View Account', user_path(current_user), class: 'item' %>
-        <div class='right menu'>
-         <div class="item">
-          <div class="ui icon input">
-            <input type="text" placeholder="Search...">
-            <i class="search link icon"></i>
-          </div>
-       </div>
-        <% if user_signed_in? %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ui item'%> 
-        <%else %>
-        <%= link_to 'Login', new_user_session_path, class: 'ui item'%>
-        <% end%>
-        </div>
-      </div>
-      <% if !user_signed_in? %>
-      <%=link_to semantic_icon('sign in')+'Log in', new_user_session_path, class: 'ui primary blue button' %>
-      <%=link_to semantic_icon('add user')+'Sign up', new_user_registration_path, class: 'ui basic blue button' %>
-      <%else%>
-      <%=link_to semantic_icon('sign out')+'Log out', destroy_user_session_path, class: 'ui basic secondary button', method: :delete %> 
-      <%end%>
-      </div>
-    </nav>
-    <div class="ui horizontal divider"></div>-->
-
     <div class="ui top menu">
-      <%= link_to "Home", root_path, class: "active blue item" %>
-      <%= link_to 'View Cart', user_registration_path, class:'item'%>
-      <%= link_to 'View Account', user_registration_path, class: 'item' %>
+      <% unless user_signed_in? %>
+      <% else %>  
+         <%= link_to "Home", root_path, class: "active blue item" %>
+        <%= link_to 'View Cart', cart_path(current_user), class:'item'%>
+        <%= link_to 'View Account', user_path(current_user), class: 'item' %>
+      <% end %>  
       <div class="right menu">
-        <% unless user_signed_in?  %>
-        <%= link_to new_user_registration_path, class: "item" do%>
-          <i class="signup icon"></i> Sign Up
-        <% end %>
-        <%= link_to new_user_session_path, class: "item" do %>
-          <i class="sign in icon"></i> Login
-        <% end %>
+        <% unless user_signed_in? %>
+          <%= link_to new_user_registration_path, class: "item" do%>
+          <i class="signup icon blue"></i> Sign Up
+          <% end %>
+          <%= link_to new_user_session_path, class: "item" do %>
+          <i class="sign in icon teal"></i> Login
+          <% end %>
         <% else %>
-        <%= link_to edit_user_registration_path, class: "item" do %>
-          <i class="settings icon"></i> Settings
-        <% end %>
-
-        <%= link_to destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"}, class: "item" do %>
-          <i class="sign out icon"></i> Logout
+          <%= link_to destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"}, class: "item" do %>
+          <i class="sign out icon red"></i> Logout
         <% end %>
 
         <% end %>
       </div>
     </div>
 
-    <div>
+     <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      
     <%= yield %>
-    </div>
-  </div>
   
-  <div class='ui container'>
-  <%= yield %>
-  </div>
-</body>
+  </body>
 </html>
 
 

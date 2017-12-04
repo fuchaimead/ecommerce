@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :items  
   resources :carts
   resources :order_items, only: [:create, :update, :destroy]
- 
+  
+  post '/items/:id', to: 'items#create'
 
 end
 

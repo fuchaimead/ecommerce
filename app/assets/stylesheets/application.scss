@@ -1,5 +1,44 @@
 @import 'semantic-ui';
 
-.main {
-  background-size: cover;
+.background { 
+  background-image: url("background.jpg") !important;
+  background-size: cover !important;
+  min-height: 100% !important;
 }
+
+
+.box {
+  position: relative;
+  color: white;
+  margin-top: 20%;
+  border: 2px solid white;
+  display: inline-block;
+  padding: 1em;
+  font-family: sans-serif;
+  font-weight: 100;
+  }
+
+
+.ui.button {
+  margin-top: 2% !important;
+}
+.ui.grid > .row > .column {
+  margin-top: 0em;
+  margin-bottom: 1em;
+}
+
+.ui.menu {
+  margin: 0px;
+}
+
+.ui.header {
+  padding: 0px;
+  color: black;
+  }
+
+#header .ui.header {
+  padding-top: 2%;
+  color: white;
+  padding-bottom: 2%;
+}
+

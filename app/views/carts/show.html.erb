@@ -1,9 +1,12 @@
+<div class='ui container'>
 <h1>Shopping Cart</h1>
 <h2> </h2>
 
+<div class="ui grid">
  <%= render "shopping" %>
+</div>
 
-  <%= link_to 'add more items', items_path, class: 'ui button' %>
-  <%= link_to 'remove items', item_path, method: :delete, class: 'ui button'%>
+ <br />
   <%= link_to 'checkout', carts_path, class: 'ui button' %>
 
+</div>
